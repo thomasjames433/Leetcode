@@ -5,7 +5,6 @@ int chalkReplacer(int* chalk, int chalksize, int k) {
         if(sum>k)
             return i;
     }
-    int x=sum;
     k%=sum;
     sum=0;
     for(int i=0;i<chalksize;i++){        
