@@ -18,8 +18,8 @@ int getLucky(char* s, int k) {
             sum/=10;
         }
         sum=x;
-        if(x/10==0)
-            return x;
+        if(sum/10==0)
+            break;
     }
     return sum;
 }
