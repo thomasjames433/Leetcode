@@ -11,7 +11,6 @@ int getLucky(char* s, int k) {
         i++;
     }
     x=0;
-    printf("%d",sum);
     for(i=1;i<k;i++){
         x=0;
         while(sum!=0){
@@ -19,7 +18,8 @@ int getLucky(char* s, int k) {
             sum/=10;
         }
         sum=x;
-        
+        if(x/10==0)
+            return x;
     }
     return sum;
 }
