@@ -1,16 +1,24 @@
-int strStr(char* haystack, char* needle) {
-    int a=strlen(needle);int b=strlen(haystack);
+int max(int a,int b){
     if(a>b)
-        return -1;
-    int i=0;
-    while(i<=b-a){
-        for(int j=0;j<a;j++){
-            if(haystack[i+j]!=needle[j])
-                break;
-            if(j==a-1)
-                return i;
+        return a;
+    return b;
+}
+
+int strStr(char* haystack, char* needle) {
+    int n=strlen(needle);
+    int *num=(int *)malloc(125*sizeof(int));
+    for(int i=0;i<125;i++)
+        num[i]=n;  
+    for(int i=0;i<n;i++)
+        num[needle[i]]=max(1,n-i-1);
+    for(int i=n-1;i<strlen(haystack);i++){
+        int j=0;
+        while(j<n && haystack[i-j]==needle[n-j-1]){
+            j++;
+            if(j==n)
+                return i-n+1;
         }
-        i++;
+        i+=num[haystack[i]]-1;
     }
     return -1;
 }
