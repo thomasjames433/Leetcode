@@ -1,39 +1,19 @@
-void merge(int* num1, int num1Size, int m, int* num2, int num2Size, int n) {
-    
-    if(m==0 && n!=0){
-        for(int i=0;i<n;i++)
-        *(num1+i)=*(num2+i);
-    }
-    
-    else if(m!=0 && n!=0){
-        int A[m+n];
-        int i=0; int j=0; int k=0;
-        while(i<m && j<n){
-            if(num1[i]<=num2[j]){
-                A[k]=num1[i];
-                i++;
-            }
-            else{
-                A[k]=num2[j];
-                j++;
-            }
-            k++;
+void merge(int* num1, int nums1Size, int m, int* num2, int nums2Size, int n) {
+    int k=m+n-1;
+    int a1=m-1;
+    int a2=n-1;
+    // printf("%d %d",a1,a2);
+    while(1){
+        if(k==-1)
+            return;
+        if(a1<0 || (a2>-1 && num2[a2]>num1[a1]) ){
+            num1[k--]=num2[a2--];
+            printf("%d ",num1[k+1]);
         }
-        if(i==m &&j<n){
-            while(k<m+n){
-                A[k]=num2[j];
-                j++;
-                k++;
-            }
+        else if(a2<0 || (a1>-1 && num2[a2]<=num1[a1])){
+            num1[k--]=num1[a1--];
+            printf("%d ",num1[k+1]);
+            
         }
-        else if(j==n &&i<m){
-            while(k<m+n){
-                A[k]=num1[i];
-                i++;
-                k++;
-            }
-        }
-        for(i=0;i<m+n;i++)
-        num1[i]=A[i];    
     }
 }
