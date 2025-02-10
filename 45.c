@@ -9,3 +9,24 @@ int jump(int* nums, int n) {
     }
     return a[n-1];
 }
+
+
+Other code 
+
+int jump(int* nums, int numsSize) {
+    if(numsSize <= 1)return 0;
+    int jump = 0;
+    int current = 0;
+    int next = 0;
+    for(int i = 0; i < numsSize; i++){
+        if((i + nums[i]) > next){
+            next = i + nums[i];
+        }
+        if(i == current){
+            jump++;
+            current = next;
+            if(current >= (numsSize-1))return jump;
+        }
+    }
+    return jump;
+}
