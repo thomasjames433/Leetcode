@@ -1,3 +1,4 @@
 Do 23 with heaps
 21 with merge sort
 160
+3404 check highest solved method
