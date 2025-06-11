@@ -1,3 +1,24 @@
+class Solution {
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>>v={{}};
+        int n=nums.size();
+
+        for(auto it: nums){
+
+            int size=v.size();
+            for(int i=0;i<size;i++){
+                auto newv=v[i];
+                newv.push_back(it);
+                v.push_back(newv);
+            }
+        }
+        return v;
+
+    }
+};
+
+
 /**
  * Return an array of arrays of size *returnSize.
  * The sizes of the arrays are returned as *returnColumnSizes array.
