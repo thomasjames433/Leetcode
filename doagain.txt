@@ -5,3 +5,4 @@ Do 23 with heaps
 621
 105
 60
+the-celebrity-problem (check stack method)
