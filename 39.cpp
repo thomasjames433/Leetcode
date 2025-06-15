@@ -1,8 +1,6 @@
 class Solution {
 public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        sort(candidates.begin(),candidates.end());
-
         vector<vector<int>>ret;
         vector<int> st;
         dfs(ret,0,candidates,target,st);
@@ -32,7 +30,6 @@ private:
 class Solution {
 public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        sort(candidates.begin(),candidates.end());
 
         vector<vector<int>>ret;
         vector<int>sum={0};

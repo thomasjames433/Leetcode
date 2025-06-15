@@ -1,3 +1,28 @@
+class Solution {
+public:
+    string reverseWords(string s) {
+        
+        string ret;
+        int len=s.size();
+        int end=len-1;
+        for(int i=len;i>=0;i--){
+            while(i>-1 && s[i]!=' ')
+                i--;
+            if(i==end){
+                end--;
+            }
+            else{
+                ret+= s.substr(i+1,end-i);
+                ret+=' ';
+                end=i-1;
+            }
+        }
+        if(ret[ret.size()-1]==' ')
+            ret.pop_back();
+        return ret;
+    }
+};
+
 char *reverse(char *a,int x,int y){
     char *new=(char*)malloc((y-x+1)*sizeof(char));
     int i=0;int j=y-1;

@@ -4,3 +4,4 @@ Do 23 with heaps
 3404 check highest solved method
 621
 105
+60
