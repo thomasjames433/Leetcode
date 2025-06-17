@@ -7,3 +7,4 @@ Do 23 with heaps
 60
 the-celebrity-problem (check stack method)
 152
+GFG-minimum-platforms-1587115620
