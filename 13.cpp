@@ -1,3 +1,43 @@
+class Solution {
+public:
+    int romanToInt(string s) {
+        allot();
+        int len=s.size();
+        int sum=0;
+        for(int i=0;i<len;i++){
+            sum+=mpp[s[i]];
+
+            if(i!=0){
+                if( mpp[s[i-1]]<mpp[s[i]] ){
+                    sum=sum-2*mpp[s[i-1]];
+                }
+            }
+        }    
+        return sum;
+    }
+private:
+    map<char,int>mpp;
+    void allot(){
+        mpp['M']=1000;
+        mpp['D']=500;
+        mpp['C']=100;
+        mpp['L']=50;
+        mpp['X']=10;
+        mpp['V']=5;
+        mpp['I']=1;
+    }
+
+};
+
+                // if( (s[i]=='D' && s[i-1]=='C') || 
+                //     (s[i]=='L' && s[i-1]=='X') || 
+                //     (s[i]=='V' && s[i-1]=='I') ||
+                //     (s[i]=='M' && s[i-1]=='C') || 
+                //     (s[i]=='C' && s[i-1]=='X') || 
+                //     (s[i]=='X' && s[i-1]=='I') 
+                    
+                // )
+
 int romanToInt(char* s) {
 
     int a=0;
