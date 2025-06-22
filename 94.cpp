@@ -24,6 +24,36 @@ public:
         inorder(ret,root->right);
     }
 };
+
+// MORRIS
+class Solution{
+    public:
+        vector<int>inorderTraversal(TreeNode*root){
+            vector<int>ret;
+            TreeNode* curr=root;
+            while(curr){
+                if(curr->left==NULL){
+                    ret.push_back(curr->val);
+                    curr=curr->right;
+                }
+                else{
+                    TreeNode*prev=curr->left;
+                    while(prev->right && prev->right!=curr)
+                        prev=prev->right;
+                    if(prev->right==NULL){
+                        prev->right=curr;
+                        curr=curr->left;
+                    }
+                    else{
+                        prev->right=NULL;
+                        ret.push_back(curr->val);
+                        curr=curr->right;
+                    }
+                }
+            }
+            return ret;
+        }
+};
 void inorder(struct TreeNode *root, int **A,int *returnsize){
     if(root!=NULL){
         inorder(root->left, A,returnsize);

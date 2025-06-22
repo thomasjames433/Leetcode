@@ -1,3 +1,29 @@
+class Solution {
+public:
+    bool isValid(string s) {
+        int len=s.size();
+        stack<char>st;
+        for(int i=0;i<len;i++){
+            if(mpp.find(s[i])==mpp.end())
+                st.push(s[i]);
+            
+            else if( (s[i]==')' || s[i]=='}' || s[i]==']'  )){ 
+                if(st.empty() || mpp[s[i]]!=st.top())
+                    return 0;
+                st.pop();
+            }
+        }
+        return st.empty();
+    }
+private:
+map<char,char>mpp={
+    {'}','{'},
+    {')','('},
+    {']','['}
+};
+};
+
+
 void push(int  A[],int *top, int x){
     (*top)++;
     A[*top]=x;
