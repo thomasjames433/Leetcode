@@ -8,16 +8,15 @@
  * };
  */
 
- class Solution {
-    public:
-        TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-            TreeNode *x=root;
-            if(p->val >root->val && q->val> root->val)
-                x=lowestCommonAncestor(root->right,p,q);
-            
-            else if(p->val <root->val && q->val< root->val)
-                x=lowestCommonAncestor(root->left,p,q);
-            
-            return x;
-        }
-    };
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        
+        if(p->val<root->val && q->val<root->val)
+            return lowestCommonAncestor(root->left,p,q);
+        
+        if(p->val>root->val && q->val>root->val)
+            return lowestCommonAncestor(root->right,p,q);
+        return root;
+    }
+};
