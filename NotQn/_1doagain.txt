@@ -13,3 +13,4 @@ GFG -minimum-platforms-1587115620
 13
 232
 207
+300 check binary search method too
