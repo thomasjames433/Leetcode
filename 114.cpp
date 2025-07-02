@@ -21,18 +21,19 @@
 class Solution {
 public:
     void flatten(TreeNode* root) {
-        if(!root)   
-            return ;
+        if(!root)
+            return;
         flatten(root->left);
         flatten(root->right);
-        TreeNode*temp=root->right;
-        root->right=root->left;
-        root->left=NULL;
-        TreeNode * a=root;
-        while(a->right)
-            a=a->right;
-        a->right=temp;
-        return ;
+        auto pred=root->left;
+        if(pred){
+            while(pred->right)
+                pred=pred->right;
+            pred->right=root->right;
+            root->right=root->left;
+            root->left=NULL;
+        }
+        return;
     }
 };
 void flatten(struct TreeNode* root) {

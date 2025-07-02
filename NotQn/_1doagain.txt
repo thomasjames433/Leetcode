@@ -1,16 +1,19 @@
 Checkout Union Find
 
-Do 23 with heaps
-21 with merge sort
-160
-3404 check highest solved method
-621
-105
-60
-GFG the-celebrity-problem (check stack method)
-152
-GFG -minimum-platforms-1587115620
 13
-232
+21 with merge sort
+Do 23 with heaps
+60
+105
+152
+160
 207
+232
 300 check binary search method too
+621
+662
+3404 check highest solved method
+
+
+GFG the-celebrity-problem (check stack method)
+GFG -minimum-platforms-1587115620
