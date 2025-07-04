@@ -113,7 +113,9 @@ void explainlist(){
   ls.pop_back();
   for(auto it:ls)
     cout << it << " ";
-
+  auto it=ls.begin();
+  // it++ next got by *it similary it -1;
+  // or advance(it,3)/ advance (it-1)
   // rest functions are same as vector
 
 }
@@ -219,6 +221,10 @@ void explainunorderedset(){
   // most operations in unordered_set are O(1) on average worst case O(n)  
 }
 
+// std::set<int, std::greater<int>> s;  // descending order
+// std::map<int, string, std::greater<int>> m;
+// std::map<std::string, int, std::greater<std::string>> m;
+
 void explainmap(){
   // stores unique keys in sorted order 
   map <int,int>mpp; //{1,2}
@@ -252,6 +258,7 @@ int main(){
 //     // cout <<"The value of x is: " << x << " and y is: "<< y;
 
 //     // string s;
+       // s.substr(a,b) returns substring from a to b excluding b and including a
 //     // getline(cin,s);
 //     // cout << s;
 

@@ -10,6 +10,7 @@ Do 23 with heaps
 207
 232
 300 check binary search method too
+496
 621
 662
 3404 check highest solved method
