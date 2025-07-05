@@ -9,12 +9,15 @@ Do 23 with heaps
 160
 207
 232
+239 checkout dequeue
 300 check binary search method too
 496
 621
 662
+1520  VERY IMP
 3404 check highest solved method
 
 
 GFG the-celebrity-problem (check stack method)
 GFG -minimum-platforms-1587115620
+GFG- job-sequencing-problem-1587115620
