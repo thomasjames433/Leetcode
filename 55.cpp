@@ -1,3 +1,20 @@
+class Solution {
+public:
+    bool canJump(vector<int>& nums) {
+        int cur=nums.size()-1;
+        while(cur!=0){
+            int dist=cur-1;
+            while(dist>=0 && nums[dist]<cur-dist)
+                dist--;
+            if(dist<0)
+                return 0;
+            cur=dist;
+            
+        }
+        return (cur==0);
+    }
+};
+
 bool canJump(int* num, int numsize) {
     if(numsize==1)
     return true;

@@ -4,6 +4,7 @@ Trapping Rain Water
 13
 21 with merge sort
 Do 23 with heaps
+53
 60
 105
 152
@@ -15,6 +16,7 @@ Do 23 with heaps
 496
 621
 662
+678
 1520  VERY IMP
 3404 check highest solved method
 
