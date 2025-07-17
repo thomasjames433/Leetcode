@@ -1,9 +1,12 @@
-Checkout Union Find
+dequeue and tuple
 
-Trapping Rain Water
-13
-21 with merge sort
-Do 23 with heaps
+Checkout Union Find
+Boyer Moore string matching
+
+13  (done)
+21 with merge sort 
+Do 23 with heaps (MERGE SORT done)
+42 Trapping Rain Water
 53
 60
 105
