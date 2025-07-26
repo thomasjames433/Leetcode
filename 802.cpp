@@ -1,3 +1,36 @@
+class Solution {
+public:
+    vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
+        vector<int>safe;
+        int n=graph.size();
+        vector<vector<int>>in(n);
+        vector<int>count(n,0);
+        for(int i=0;i<n;i++){
+            for(auto it:graph[i]){
+                in[it].push_back(i);
+                count[i]++;
+            }
+        }
+        int q=0;
+        for(int i=0;i<n;i++){
+            if(graph[i].empty()){
+                safe.push_back(i);
+            }
+        }
+        while(q!=safe.size()){
+            int x=safe[q];
+            for(auto it:in[x]){
+                count[it]--;
+                if(count[it]==0)
+                    safe.push_back(it);
+            }
+            q++;
+        }
+        sort(safe.begin(),safe.end());
+        return safe;
+    }
+};
+
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */

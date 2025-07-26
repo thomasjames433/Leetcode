@@ -60,3 +60,28 @@ public:
         
     }
 };
+
+
+Slowee but still works
+class Solution {
+public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        int n=candidates.size();
+        vector<vector<vector<int>>>v(target+1);
+        for(int i=0;i<n;i++){
+            int cur=candidates[i];
+            if(cur>target)
+                continue;
+            v[cur].push_back({cur});
+            for(int j=cur+1;j<=target;j++){
+                int rem=j-cur;
+                for(int k=0;k<v[rem].size();k++){
+                    auto temp=v[rem][k];
+                    temp.push_back(cur);
+                    v[j].push_back(temp);
+                }
+            }
+        }
+        return v[target];
+    }
+};
