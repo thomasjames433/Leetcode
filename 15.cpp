@@ -1,3 +1,33 @@
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        vector<vector<int>>ret;
+
+        for(int i=0;i<nums.size();i++){
+            if(i!=0 && nums[i]==nums[i-1])
+                continue;
+            int j=i+1;
+            int k=nums.size()-1;
+            while(j<k){
+                if (nums[i] + nums[j] +nums[k]==0){
+                    ret.push_back({nums[i],nums[j],nums[k]});
+                    j++;
+                    while(j<k && nums[j]==nums[j-1])j++;
+                    k--;
+                    while(j<k && nums[k]==nums[k+1])k--;
+                }
+                else if(nums[i]+nums[j]+nums[k]<0 )
+                    j++;
+                else
+                    k--;
+                
+            }
+        }
+        return ret;
+    }
+};
+
 /**
  * Return an array of arrays of size *returnSize.
  * The sizes of the arrays are returned as *returnColumnSizes array.

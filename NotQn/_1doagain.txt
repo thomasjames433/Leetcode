@@ -21,6 +21,7 @@ Do 23 with heaps (MERGE SORT done)
 621
 662
 678
+907  CHECKKKKK
 1520  VERY IMP
 3404 check highest solved method
 

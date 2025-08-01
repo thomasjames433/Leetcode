@@ -9,6 +9,16 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+ struct TreeNode{
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(): val(0),left(nullptr),right(nullptr){}
+
+ };
+ 
+
 class Solution {
 public:
     bool findTarget(TreeNode* root, int k) {

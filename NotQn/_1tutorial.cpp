@@ -96,6 +96,8 @@ void explainvector(){
     // v1.swap(v2) swaps the values of v1 and v2
     // v.clear() clears the vector
     // v.empty() checks if the vector is empty
+    // 3d vector
+      vector<vector<vector<int>>> dp(len1 + 1, vector<vector<int>>(len2 + 1, vector<int>(len3 + 1, 0)));
 
 }
 
