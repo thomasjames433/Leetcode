@@ -10,6 +10,7 @@ Do 23 with heaps (MERGE SORT done)
 53
 60
 105
+128
 152
 160
 207
@@ -23,6 +24,7 @@ Do 23 with heaps (MERGE SORT done)
 678
 1520  VERY IMP
 3404 check highest solved method
+
 
 LRU cache, write main func
 

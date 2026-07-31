@@ -25,3 +25,34 @@ public:
         return;
     }
 };
+
+
+// Same Method diff writing
+
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        string maxstr=s.substr(0,1);
+        for (int i=0;i<s.size();i++){
+            int a =i-1;
+            int b= i+1;
+            while(a>=0 && b<s.size() && s[a]==s[b]){
+                a--;
+                b++;
+            }
+            if(b-a-1>maxstr.size())
+                maxstr=s.substr(a+1,b-a-1);
+            
+            a =i;
+            b= i+1;
+            while(a>=0 && b<s.size() && s[a]==s[b]){
+                a--;
+                b++;
+            }
+            if(b-a-1>maxstr.size())
+                maxstr=s.substr(a+1,b-a-1);
+        }
+        return maxstr;
+    }
+
+};
