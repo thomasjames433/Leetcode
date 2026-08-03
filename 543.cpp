@@ -10,51 +10,21 @@
  * };
  */
 class Solution {
+private:
+    int getHeight(TreeNode*root, int &maxheight){
+        if(root==nullptr)
+            return 0;
+        int x= getHeight(root->left,maxheight);
+        int y= getHeight(root->right,maxheight);
+        if(x+y>maxheight)
+            maxheight=x+y;
+        return 1+max(x,y);
+
+    }
 public:
     int diameterOfBinaryTree(TreeNode* root) {
-        int diameter=0;
-        int h= get_height(root,diameter);
-        return diameter;
-    }
-    int get_height(TreeNode*root,int &diameter){
-        if(!root)
-            return 0;
-        int x= get_height(root->left,diameter);
-        int y= get_height(root->right,diameter);
-
-        diameter=max(diameter,x+y);
-        return max(x+1,y+1);
+        int maxheight=0;
+        getHeight(root,maxheight);
+        return maxheight;
     }
 };
-
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     struct TreeNode *left;
- *     struct TreeNode *right;
- * };
- */
-int max(int a,int b){
-    if(a>b)
-    return a;
-    return b;
-}
-
-int height(struct TreeNode *root,int *diameter){
-    if(root==NULL)
-    return 0;
-
-    else{
-        int lh=height(root->left,diameter);
-        int rh=height(root->right,diameter);
-        *diameter=max(*diameter,lh+rh);    // if we put 1+lh+rh
-        return 1+ max(lh,rh);
-    }
-}
-
-int diameterOfBinaryTree(struct TreeNode* root) {
-    int diameter=0;
-    height(root,&diameter);
-    return diameter;                    // we return diameter -1
-}
