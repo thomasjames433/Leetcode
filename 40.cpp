@@ -1,67 +1,28 @@
 class Solution {
 public:
-    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
-        sort(candidates.begin(),candidates.end());
-        
-        vector<vector<int>>ret;
-        vector<int>st;
-        dfs(ret,target,0,candidates,st);
-        return ret;
-
-    }
-
-private:
-
-    void dfs(vector<vector<int>>&ret,int target, int i,vector<int>&candidates,vector<int>&st){
-        if(target<0)
+    void getSum(vector<vector<int>>&ret, vector<int>&candidates,vector<int>&curvector,int target,int i){
+        if(i>=candidates.size() || target<0)
             return;
+        target-=candidates[i];
+        cout<<candidates[i]<<" "<<target<< "\n";
+        curvector.push_back(candidates[i]);
         if(target==0){
-            ret.push_back(st);
+            ret.push_back(curvector);
+            curvector.pop_back();
             return;
         }
-
-        for(int j=i;j<candidates.size();j++){
-
-            if(j>i && candidates[j]==candidates[j-1])
-                continue;
-            st.push_back(candidates[j]);
-            dfs(ret,target-candidates[j],j+1,candidates,st);
-            st.erase(st.end()-1,st.end());
-        }
+        getSum(ret,candidates,curvector,target,i+1);
+        curvector.pop_back();
+        while(i<candidates.size()-1 &&candidates[i]==candidates[i+1])
+            i++;
+        getSum(ret,candidates,curvector,target+candidates[i],i+1);
+        
     }
-};
-
-
-class Solution {
-public:
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
         sort(candidates.begin(),candidates.end());
-        vector<vector<int>>ret;
-        vector<int>sum={0};
-        vector<vector<int>>v={{}};
-        int k;
-        for(int i=0;i<candidates.size();i++){
-            int j=0;
-
-            if(i!=0 && candidates[i]==candidates[i-1])
-                j=k;
-            k=v.size();
-
-            for(int x=j;x<k;x++){
-                if(sum[x]+candidates[i]==target){
-                    auto newv=v[x];
-                    newv.push_back(candidates[i]);
-                    ret.push_back(newv);
-                }
-                else if(sum[x]+candidates[i]<target){
-                    sum.push_back(sum[x]+candidates[i]);
-                    auto newv=v[x];
-                    newv.push_back(candidates[i]);
-                    v.push_back(newv);
-                }
-            }
-
-        }
+        vector<vector<int>>ret={};
+        vector<int>curvector={};
+        getSum(ret,candidates,curvector,target,0);
         return ret;
     }
 };
